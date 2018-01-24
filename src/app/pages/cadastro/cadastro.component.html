@@ -1,0 +1,37 @@
+<div class="container">
+  <form action="" 
+      (submit)="salvar($event)" 
+      [formGroup]="formCadastro"
+                                              >  <!--Neste ponto o submit faria o refresh da pagina
+                                                  mas com o parenteses ele liga o model com a view 
+                                                  acessando o objeto foto 
+                                                  e o $event nao deixa fazer o refresh-->
+
+                                                  
+    <label for="">Titulo</label>
+    <input type="text" 
+        name="titulo" 
+        [(ngModel)]="foto.titulo" 
+        formControlName="titulo">
+
+    <label for="">URL (da imagem)</label>
+    <input type="text" 
+        name="url" 
+        [(ngModel)]="foto.url"     
+        formControlName="url">
+
+    <label for="">Descrição</label>
+    <textarea class="materialize-textarea" 
+        [(ngModel)]="foto.descricao" 
+        name="descricao" 
+        id="" 
+        cols="30" 
+        rows="10"
+        formControlName="descricao">
+    ></textarea>
+
+    <button type="submit" class="waves-effect waves-light btn">Enviar</button>
+    <a [routerLink]="['']" class="waves-effect waves-light btn">Voltar</a>
+  </form>
+
+</div>

@@ -1,0 +1,50 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <div style="text-align:center">
+  <h1>
+    {{title}}
+  </h1> -->
+
+  <!-- <div class="container">
+    <foto url="./assets/img/pikachu.jpg" titulo="Pikachu"></foto>
+    <foto url="./assets/img/charizard.png" titulo="Charizard"></foto>
+  </div> -->
+
+  <!-- usando loop for -->
+  <!-- <foto *ngFor="let foto of fotos" [url]="foto.url" [titulo]="foto.titulo"></foto>
+</div> -->
+
+
+<!-- //novo layout -->
+<nav>
+  <div class="nav-wrapper">
+      <a href="#" class="brand-logo">{{ title }}</a>
+      <ul class="right hide-on-med-and-down">
+
+        <!-- //aqui esta carregando a pagina e deveria nao dar refresh -->
+        <!-- <li><a href="/cadastro">Cadastre novas fotos agora mesmo!</a></li> -->
+        <li><a [routerLink]="['cadastro']">Cadastre novas fotos agora mesmo!</a></li>
+      </ul>
+  </div>
+</nav>
+
+<form action="" class="container">
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">search</i>
+      <input id="busca" type="search" (keyup)="0" #inputBusca>
+    </div>
+  </div>
+</form>
+
+<h2 *ngIf="inputBusca.value;">Voce está procurando por: {{ inputBusca.value }}</h2> <!--imprime o texto da busca digitado -->
+
+<div class="row">
+  <card class="col s12 m4" *ngFor="let foto of fotos | filtraPorTitulo:inputBusca.value" [titulo]="foto.titulo">
+      <a [routerLink]="['cadastro', foto._id]">
+        <foto url="{{foto.url}}"
+            [titulo]="foto.titulo"></foto>
+      </a>
+      <button class="btn red darken-4" (click)="removeFoto(foto)">Remover</button>
+  </card>
+</div>
+

@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
-@Component({
+
+@Component({   //Annotation
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  /*template: '<h1>Hello world</h1>'*/
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'app';
+ 
 }
